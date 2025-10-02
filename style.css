@@ -36,19 +36,18 @@ header, footer {
 /* Sticky Header with frosted white background */
 header {
   display: flex;
-  align-items: flex-start; /* top-aligned */
+  align-items: flex-start;
   justify-content: space-between;
   padding: 20px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;   /* fully transparent */
   box-sizing: border-box;
   flex-wrap: wrap;
   gap: 10px;
 }
+
 
 /* Centered "JAIS GEORGE" */
 header h1 {
@@ -328,5 +327,6 @@ footer p {
   font-weight: 200; /* ExtraLight */
 
 }
+
 
 
