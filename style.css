@@ -18,7 +18,7 @@ body {
   scrollbar-width: none;      /* Firefox */
 
   /* Background image */
-  background: url("images/Mariachi Melam poster 3 horiz.png") no-repeat center center fixed;
+  background: url("images/Mariachi Melam Cover Image.png") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -328,4 +328,5 @@ footer p {
   font-weight: 200; /* ExtraLight */
 
 }
+
 
