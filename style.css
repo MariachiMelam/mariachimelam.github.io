@@ -21,6 +21,23 @@ body {
   scrollbar-width: none;
 }
 
+/* Make the page stretch to full height */
+html, body {
+  height: 100%;
+}
+
+/* Use flex layout to push footer to the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make main area expand to fill remaining space */
+main {
+  flex: 1;
+}
+
+
 body::-webkit-scrollbar { display: none; }
 
 a { color: inherit; text-decoration: none; transition: color 0.2s; }
@@ -499,6 +516,7 @@ footer p { font-size: 0.9rem; }
 @media (max-width: 768px) {
   .slideshow-row, .slideshow-column { flex-direction: column; width: 90vw; max-width: 90vw; }
 }
+
 
 
 
