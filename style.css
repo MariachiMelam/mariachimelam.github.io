@@ -200,29 +200,36 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 */
 
 
-
-/* =========================
-   TWO-COLUMN IMAGE + TEXT
-========================= */
+/* TWO-COLUMN IMAGE + TEXT */
 .two-col {
   display: flex;
-  align-items: center;       /* vertically center both sides */
-  justify-content: center;   /* horizontally center the whole block */
-  gap: 40px;                 /* space between columns */
+  justify-content: center;
+  gap: 40px;
   width: 90vw;
   margin: 60px auto;
 }
 
+/* LEFT COLUMN */
+.two-col-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .two-col-left img {
   width: 100%;
-  max-width: 480px;          /* controls image size */
+  max-width: 480px;
   height: auto;
   display: block;
 }
 
+/* RIGHT COLUMN */
 .two-col-right {
   max-width: 500px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .two-col-right h2 {
@@ -236,15 +243,16 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
   line-height: 1.5;
 }
 
-
-/* Mobile: stack vertically */
+/* MOBILE */
 @media (max-width: 900px) {
   .two-col {
     flex-direction: column;
     text-align: center;
   }
+
   .two-col-right {
     text-align: center;
+    justify-content: flex-start; /* no vertical centering on stacked layout */
   }
 }
 
@@ -516,6 +524,7 @@ footer p { font-size: 0.9rem; }
 @media (max-width: 768px) {
   .slideshow-row, .slideshow-column { flex-direction: column; width: 90vw; max-width: 90vw; }
 }
+
 
 
 
