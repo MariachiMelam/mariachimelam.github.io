@@ -35,6 +35,8 @@ body {
 /* Make main area expand to fill remaining space */
 main {
   flex: 1;
+  display: block;     /* Prevents unwanted vertical centering */
+  align-items: flex-start; /* (just in case) */
 }
 
 
@@ -524,6 +526,7 @@ footer p { font-size: 0.9rem; }
 @media (max-width: 768px) {
   .slideshow-row, .slideshow-column { flex-direction: column; width: 90vw; max-width: 90vw; }
 }
+
 
 
 
