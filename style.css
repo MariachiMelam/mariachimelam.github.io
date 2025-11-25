@@ -311,7 +311,7 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 
 .person img {
   width: 100%;
-  height: 200px;        /* <-- uniform image height */
+  aspect-ratio: 1 / 1;
   object-fit: cover;    /* crop top/bottom equally */
   display: block;
 }
@@ -581,6 +581,12 @@ footer p { font-size: 0.9rem; }
 
 
 
+
+/* Fix 2: Center collage properly */
+.project-collage .collage {
+  max-width: 1200px;
+  margin-inline: auto;
+}
 
 
 
