@@ -310,7 +310,10 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 
 .person img {
   width: 100%;
+  aspect-ratio: 1 / 1;   /* square shape */
+  object-fit: cover;     /* fill square without distortion */   
   display: block;
+  border-radius: 0;   
 }
 
 /* Name line */
@@ -573,6 +576,7 @@ footer p { font-size: 0.9rem; }
 @media (max-width: 768px) {
   .slideshow-row, .slideshow-column { flex-direction: column; width: 90vw; max-width: 90vw; }
 }
+
 
 
 
