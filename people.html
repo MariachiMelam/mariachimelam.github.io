@@ -226,7 +226,7 @@ highlightThumbnail();
    COLLAGE BUILDER
 ============================================================ */
 document.querySelectorAll(".collage").forEach(collage => {
-  const imgs = [...collage.querySelectorAll("img")];
+  const items = [...collage.querySelectorAll("figure.person")]; // keep full cards
   const count = Number(collage.dataset.columns) || 3;
 
   collage.innerHTML = "";
@@ -238,7 +238,7 @@ document.querySelectorAll(".collage").forEach(collage => {
     return col;
   });
 
-  imgs.forEach((img, i) => columns[i % count].appendChild(img));
+  items.forEach((item, i) => columns[i % count].appendChild(item));
 });
 
 /* ============================================================
