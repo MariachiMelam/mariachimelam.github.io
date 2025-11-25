@@ -305,41 +305,29 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;   
-  /* FIXED uniform card height (adjust as needed) */
-  height: 260px;
-  overflow: hidden;  
-  gap: 6px; /* spacing between name & role */
-  text-align: center;   
+  text-align: center;
+  gap: 6px;
 }
 
 .person img {
   width: 100%;
-  aspect-ratio: 1 / 1;   /* square shape */
-  object-fit: cover;     /* fill square without distortion */   
+  height: 200px;        /* <-- uniform image height */
+  object-fit: cover;    /* crop top/bottom equally */
   display: block;
-  border-radius: 0;
-  flex-shrink: 0;   
 }
 
 /* Name line */
 .person .name {
   font-size: 1rem;
   font-weight: 400;
-  text-align: center;
   line-height: 1.2;
-  max-height: 2.4em; /* max 2 lines */
-  overflow: hidden;
 }
 
 /* Role line */
 .person .role {
   font-size: 0.85rem;
   opacity: 0.8;
-  text-align: center;
   line-height: 1.2;
-  max-height: 2.4em; /* max 2 lines */
-  overflow: hidden;   
 }
 
 /* Maintain equal vertical & horizontal spacing */
@@ -590,6 +578,7 @@ footer p { font-size: 0.9rem; }
 @media (max-width: 768px) {
   .slideshow-row, .slideshow-column { flex-direction: column; width: 90vw; max-width: 90vw; }
 }
+
 
 
 
