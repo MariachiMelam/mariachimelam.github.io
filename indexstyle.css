@@ -14,7 +14,10 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #000;
+  background-image: url("images/mm poster wide lower.jpg");
+  background-size: cover;             /* Always fills the window */
+  background-position: center bottom; /* Bottom aligned + horizontal crop centered */
+  background-repeat: no-repeat;
   text-align: center;
   color: #fff;
   -ms-overflow-style: none;
