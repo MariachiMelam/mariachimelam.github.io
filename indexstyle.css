@@ -19,7 +19,7 @@ body {
   background-position: center bottom; /* Bottom aligned + horizontal crop centered */
   background-repeat: no-repeat;
   text-align: center;
-  color: #fff;
+  color: #000;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -51,7 +51,7 @@ a:hover { color: #888; }
 /* =========================
    HEADER & NAVIGATION
 ========================= */
-header, footer { color: #fff; text-align: center; padding: 20px; }
+header, footer { color: #000; text-align: center; padding: 20px; }
 
 header {
   display: flex;
@@ -147,13 +147,13 @@ header.mobile-collapsed .close-icon {
 .mobile-menu-items a {
   font-size: 1.7rem;
   font-weight: 200;
-  color: #fff;
+  color: #000;
 }
 
 /* -------------------------
    MOBILE HEADER / MEDIA
 ------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 678px) {
   .header-left { justify-content: flex-start; }
   header h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
   .menu-icon { display: block !important; }
