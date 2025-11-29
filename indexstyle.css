@@ -119,6 +119,21 @@ footer a {
   color: #000; 
 }
 
+/* =========================
+   HEADER H3 – CUSTOM FONT
+========================= */
+header h3 {
+  font-family: 'Niagara Solid', 'Inter', sans-serif;
+  color: #ec8301;
+  font-size: clamp(3rem, 8vw, 6rem); /* VERY big */
+  font-weight: normal;
+  letter-spacing: 1px;               /* cleaner for tall font */
+  margin: 0;
+  line-height: 0.9;                  /* tighter for display fonts */
+  text-transform: uppercase;         /* OPTIONAL – remove if not wanted */
+}
+
+
 /* ICONS */
 .menu-icon, .close-icon {
   width: 28px;
