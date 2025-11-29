@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariachi Melam</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ============================
+      HEADER
+============================ -->
+<header>
+  <nav class="header-left">
+    <a href="about.html">About</a>
+  </nav>
+
+  <h1><a href="index.html">M a r i a c h i &nbsp;&nbsp;M e l a m&nbsp;&nbsp; - T h e F i l m</a></h1>
+
+  <nav class="header-right" id="mainNav">
+    <a href="people.html">People</a>
+    <a href="castingcall.html">Casting Call</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfajCrrLco62l53gJvVP90fExwTcf1uCJfORF5lQFfnvcZHPA/viewform?usp=header">Filming Consent</a>
+  </nav>
+
+  <img src="icons/hamburgerw54.png" class="menu-icon" id="menuBtn" alt="Open Menu">
+  <img src="icons/crossw54.png" class="close-icon" id="menuCloseBtn" alt="Close Menu">
+</header>
+
+<!-- ============================
+      MOBILE MENU
+============================ -->
+<div id="mobileMenu" class="mobile-menu-overlay" aria-hidden="true">
+  <div class="mobile-menu-items" id="mobileMenuItems"></div>
+</div>
+
+<!-- ============================
+      MAIN CONTENT
+============================ -->
+<main>
+
+<div class="two-col">
+  <div class="two-col-left">
+    <img src="images/mm poster.png" alt="MM Poster">
+  </div>
+
+  <div class="two-col-right">
+    <h2></h2>
+    <p>A black and White Musical that follows an Indian boy and a Hispanic girl falling in love in College Station, Texas.</p>
+  </div>
+ </div>
+
+</main>
+
+<!-- ============================
+      FOOTER
+============================ -->
+<footer>
+  <p></p>
+  <p>&copy; 2025 Jais George, Texas A&M University Visualization Laboratory</p>
+</footer>
+
+<!-- ============================
+      SCRIPTS
+============================ -->
+<script>
+  // ============================
+  // HEADER COLLAPSE / MOBILE MENU
+  // ============================
+  const header = document.querySelector("header");
+  const menuButton = document.querySelector(".menu-icon");
+  const closeButton = document.querySelector(".close-icon");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileMenuItems = document.getElementById("mobileMenuItems");
+  const rightLinks = document.querySelectorAll(".header-right a");
+
+  // Populate mobile menu
+  rightLinks.forEach(link => {
+    mobileMenuItems.appendChild(link.cloneNode(true));
+  });
+
+  function openMenu() {
+    mobileMenu.classList.add("open");
+    header.classList.add("mobile-collapsed");
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove("open");
+    header.classList.remove("mobile-collapsed");
+  }
+
+  menuButton.addEventListener("click", openMenu);
+  closeButton.addEventListener("click", closeMenu);
+  mobileMenu.addEventListener("click", e => {
+    if (e.target === mobileMenu) closeMenu();
+  });
+
+  function checkHeaderCollapse() {
+    if (window.innerWidth <= 768) header.classList.add("mobile-collapsed");
+    else header.classList.remove("mobile-collapsed");
+  }
+
+  window.addEventListener("resize", checkHeaderCollapse);
+  window.addEventListener("load", checkHeaderCollapse);
+
+  // Header scroll state
+  const updateHeaderState = () => {
+    if (window.scrollY > 10) document.body.classList.add("scrolled");
+    else document.body.classList.remove("scrolled");
+  };
+  window.addEventListener("scroll", updateHeaderState);
+  updateHeaderState();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
