@@ -51,7 +51,11 @@ a:hover { color: #888; }
 /* =========================
    HEADER & NAVIGATION
 ========================= */
-header, footer { color: #000; text-align: center; padding: 20px; }
+header, footer { 
+  color: #000; 
+  text-align: center; 
+  padding: 20px; 
+}
 
 header {
   display: flex;
@@ -61,13 +65,17 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8);
+
+  /* UPDATED — frosted white instead of black */
+  background-color: rgba(255, 255, 255, 0.75);  /* light opaque white */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+
   gap: 10px;
   flex-wrap: nowrap;
 }
 
+/* Center title */
 header h1 {
   position: absolute;
   top: 50%;
@@ -79,10 +87,11 @@ header h1 {
   white-space: nowrap;
 }
 
+/* UPDATED — Header title link is black now */
 header h1 a {
   font-size: clamp(1.6rem, 4vw, 2rem);
   text-decoration: none;
-  color: #fff;
+  color: #000; /* changed from white */
 }
 
 .header-left,
@@ -94,18 +103,22 @@ header h1 a {
 }
 
 .header-left { justify-content: flex-start; }
-
 .header-right { justify-content: flex-end; max-width: 35%; }
 
-header a, footer a { color: #fff; }
+/* UPDATED — Nav links black instead of white */
+header a, 
+footer a { 
+  color: #000; 
+}
 
+/* ICONS */
 .menu-icon, .close-icon {
   width: 28px;
   height: 28px;
   cursor: pointer;
   position: relative;
   z-index: 1500;
-  display: none; /* default hidden on desktop */
+  display: none;
 }
 
 /* =========================
