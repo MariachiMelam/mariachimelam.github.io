@@ -56,6 +56,18 @@ body::-webkit-scrollbar { display: none; }
 a { color: inherit; text-decoration: none; transition: color 0.2s; }
 a:hover { color: #888; }
 
+.project-title {
+  font-family: 'Niagara Solid', 'Inter', sans-serif;
+  color: #ec8301;
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+
 /* =========================
    HEADER & NAVIGATION
 ========================= */
@@ -117,20 +129,6 @@ header h1 a {
 header a, 
 footer a { 
   color: #000; 
-}
-
-/* =========================
-   HEADER H3 – CUSTOM FONT
-========================= */
-header h3 {
-  font-family: 'Niagara Solid', 'Inter', sans-serif;
-  color: #ec8301;
-  font-size: clamp(3rem, 8vw, 6rem); /* VERY big */
-  font-weight: normal;
-  letter-spacing: 1px;               /* cleaner for tall font */
-  margin: 0;
-  line-height: 0.9;                  /* tighter for display fonts */
-  text-transform: uppercase;         /* OPTIONAL – remove if not wanted */
 }
 
 
