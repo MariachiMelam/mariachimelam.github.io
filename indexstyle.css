@@ -58,13 +58,34 @@ a:hover { color: #888; }
 
 .project-title {
   font-family: 'Niagara Solid', 'Inter', sans-serif;
-  color: #ec8301;
   font-size: clamp(3rem, 9vw, 7rem);
   font-weight: normal;
   letter-spacing: 1px;
-  margin: 0;
   line-height: 0.9;
   text-transform: uppercase;
+
+  display: flex;            /* side-by-side words */
+  justify-content: center;   /* center as a unit */
+  gap: 0.4em;                /* spacing between the words */
+  width: 100%;               /* ensures perfect centering */
+  margin: 0 auto;
+}
+
+/* Word colors */
+.title-mariachi {
+  color: #ec8301; /* yellow */
+}
+
+.title-melam {
+  color: #ee4429; /* red */
+}
+
+/* 8-line spacing before project description */
+.project-desc {
+  margin-top: calc(1em * 8);
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: #000;
 }
 
 
