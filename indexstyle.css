@@ -13,8 +13,8 @@
 
 @font-face {
   font-family: 'NiagaraCustom';
-  src: url('fonts/niagarasolid.woff2') format('woff2'),
-       url('fonts/niagarasolid.woff') format('woff');
+  src: url('fonts/NiagaraSolid-reg.woff2') format('woff2'),
+       url('fonts/niagaraSolid-reg.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
