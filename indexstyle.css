@@ -65,12 +65,14 @@ a:hover { color: #888; }
   line-height: 0.9;
   text-transform: uppercase;
 
-  display: flex;            /* side-by-side words */
-  justify-content: center;   /* center as a unit */
-  gap: 0.4em;                /* spacing between the words */
-  width: 100%;               /* ensures perfect centering */
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+
+  width: auto;           /* ← CHANGED (was 100%) */
   margin: 0 auto;
 }
+
 
 /* Word colors */
 .title-mariachi {
@@ -87,7 +89,11 @@ a:hover { color: #888; }
   font-size: 1.2rem;
   font-weight: 200;
   color: #000;
+
+  width: auto;           /* ← CHANGED */
+  margin-inline: auto;
 }
+
 
 
 /* =========================
