@@ -105,36 +105,11 @@ a:hover { color: #888; }
   padding-bottom: 6vh;
 }
 
-.footer-media {
-  position: relative;
-
-  width: 100vw;
-  max-height: 25vh;   /* ← NEVER exceeds 25% of viewport height */
-  overflow: hidden;   /* ← crop bottom / sides if needed */
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-
-.footer-media img {
-  height: 25vh;       /* target height */
-  max-height: 25vh;
-
-  width: auto;        /* ← allows horizontal spill */
-  min-width: 100vw;   /* ← guarantees no white gaps */
-
-  object-fit: cover;
-  object-position: center bottom;
-
-  display: block;
-}
 
 /* =========================
    HEADER & NAVIGATION
 ========================= */
-header, footer { 
+header, { 
   color: #000; 
   text-align: center; 
   padding: 20px; 
@@ -189,8 +164,7 @@ header h1 a {
 .header-right { justify-content: flex-end; max-width: 35%; }
 
 /* UPDATED — Nav links black instead of white */
-header a, 
-footer a { 
+header a { 
   color: #000; 
 }
 
@@ -600,7 +574,53 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 /* =========================
    FOOTER
 ========================= */
+.footer-media {
+  position: relative;
+
+  width: 100vw;
+  max-height: 25vh;   /* ← NEVER exceeds 25% of viewport height */
+  overflow: hidden;   /* ← crop bottom / sides if needed */
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.footer-media img {
+  height: 25vh;       /* target height */
+  max-height: 25vh;
+
+  width: auto;        /* ← allows horizontal spill */
+  min-width: 100vw;   /* ← guarantees no white gaps */
+
+  object-fit: cover;
+  object-position: center bottom;
+
+  display: block;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: auto 0 0 0;  /* ← stick to bottom */
+
+  padding: 20px;
+  text-align: center;
+
+  color: white;
+  font-size: 0.9rem;
+
+  pointer-events: none; /* optional: clicks pass through */
+}
+
+
 footer p { font-size: 0.9rem; }
+footer,
+footer a {
+  text-align: center; 
+  padding: 20px; 
+  color: white !important;
+}
 
 /* =========================
    LIGHTBOX
