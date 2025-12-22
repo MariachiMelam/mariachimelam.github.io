@@ -118,6 +118,18 @@ a:hover { color: #888; }
 }
 
 
+.footer-media img {
+  height: 25vh;       /* target height */
+  max-height: 25vh;
+
+  width: auto;        /* ← allows horizontal spill */
+  min-width: 100vw;   /* ← guarantees no white gaps */
+
+  object-fit: cover;
+  object-position: center bottom;
+
+  display: block;
+}
 
 /* =========================
    HEADER & NAVIGATION
