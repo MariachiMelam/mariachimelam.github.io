@@ -117,6 +117,21 @@ a:hover { color: #888; }
   overflow: hidden;
 }
 
+
+.footer-media {
+  position: relative;
+
+  width: 100vw;
+  max-height: 25vh;   /* ← NEVER exceeds 25% of viewport height */
+  overflow: hidden;   /* ← crop bottom / sides if needed */
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+
 /* =========================
    HEADER & NAVIGATION
 ========================= */
