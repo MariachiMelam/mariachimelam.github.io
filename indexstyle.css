@@ -34,16 +34,12 @@ body {
   scrollbar-width: none;
 }
 
+
 /* Make the page stretch to full height */
 html, body {
   height: 100%;
 }
 
-/* Use flex layout to push footer to the bottom */
-body {
-  display: flex;
-  flex-direction: column;
-}
 
 /* Make main area expand to fill remaining space */
 main {
@@ -84,17 +80,30 @@ a:hover { color: #888; }
   color: #ee4429; /* red */
 }
 
-/* 8-line spacing before project description */
 .project-desc {
-  margin-top: calc(1em * 8);
+  margin: auto 0;  /* ← vertical centering magic */
   font-size: 1.2rem;
-  font-weight: 200;
-  color: #000;
-
-  width: auto;           /* ← CHANGED */
+  max-width: 600px;
   margin-inline: auto;
 }
 
+.hero {
+  flex: 1; /* takes all space above footer image */
+  display: flex;
+  justify-content: center; /* horizontal */
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-top: 6vh;   /* space below header */
+  padding-bottom: 6vh;
+}
 
 
 /* =========================
