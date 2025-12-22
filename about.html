@@ -58,10 +58,17 @@
 <!-- ============================
       FOOTER
 ============================ -->
-<footer>
-  <p></p>
-  <p>&copy; 2025 Jais George, Texas A&M University Visualization Laboratory</p>
-</footer>
+<div class="footer-media">
+  <img
+    src="images/mm poster marigold lower 4K HD_2.jpg"
+    alt="Mariachi Melam footer image"
+  />
+
+  <footer class="footer-overlay">
+    <p>&copy; 2025 Jais George, Texas A&M University Visualization Laboratory</p>
+  </footer>
+</div>
+
 
 <!-- ============================
       SCRIPTS
@@ -98,7 +105,7 @@
   });
 
   function checkHeaderCollapse() {
-    if (window.innerWidth <= 768) header.classList.add("mobile-collapsed");
+    if (window.innerWidth <= 1024) header.classList.add("mobile-collapsed");
     else header.classList.remove("mobile-collapsed");
   }
 
@@ -116,17 +123,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
