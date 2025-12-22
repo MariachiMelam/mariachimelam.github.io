@@ -88,10 +88,12 @@ a:hover { color: #888; }
 }
 
 .hero {
-  flex: 1; /* takes all space above footer image */
+  flex: 1;
   display: flex;
-  justify-content: center; /* horizontal */
+  justify-content: center;   /* vertical centering */
+  align-items: center;       /* horizontal centering */
 }
+
 
 .hero-content {
   width: 100%;
@@ -99,11 +101,12 @@ a:hover { color: #888; }
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;                 /* 🔑 spacing between title & desc */
 
-  padding-top: 6vh;   /* space below header */
-  padding-bottom: 6vh;
+  padding: 0 2rem;           /* side breathing room */
 }
+
 
 
 /* =========================
