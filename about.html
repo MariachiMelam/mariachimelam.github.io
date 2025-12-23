@@ -153,7 +153,13 @@
   updateHeaderState();
 
 
-
+function onYouTubeIframeAPIReady() {
+    document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+      const thumbnail = wrapper.querySelector(".video-thumbnail");
+      const playBtnWrapper = wrapper.querySelector(".play-button-wrapper");
+      let player = null;
+      let overlay = null;
+      let isInitialized = false;
 
 document.querySelectorAll(".video-wrapper").forEach(wrapper => {
   const thumbnail = wrapper.querySelector(".video-thumbnail");
@@ -203,7 +209,7 @@ document.querySelectorAll(".video-wrapper").forEach(wrapper => {
   });
 });
 
-
+}
 
   
 
