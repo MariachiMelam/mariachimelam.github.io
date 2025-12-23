@@ -3,13 +3,21 @@
 ========================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700&display=swap');
 
-* {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-weight: 200; /* ExtraLight globally */
+/* Global reset */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* Base typography */
+body {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-weight: 200; /* ExtraLight default */
+}
+
 
 @font-face {
   font-family: 'NiagaraCustom';
