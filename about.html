@@ -47,45 +47,18 @@
 ============================ -->
 <main>
 
-<div class="project-section">
-  <!-- Text description above the two columns -->
-  <p class="project-desc">
-      Mariachi Melam is a film in production at Texas A&M University, College Station,
-      developed as part of Jais George's Master of Science graduate thesis in Visualization.
-      <br><br>
-      A filmmaker and engineer from India, Jais has previously worked as an assistant
-      director and story artist in Malayalam cinema. Currently his work spans 3D visual
-      effects, virtual production and generative AI in filmmaking.
-      Mariachi Melam is his feature directorial debut.
-  </p>
-
-  <!-- Two-column layout -->
-  <div class="project-row-two-columns">
-    
-    <!-- Poster column -->
-    <div class="project-column-two">
-      <img src="images/mm poster.png" alt="MM Poster">
-      <p class="column-caption">Poster Caption</p>
-    </div>
-
-    <!-- Video column -->
-    <div class="project-column-two">
-      <div class="video-wrapper" data-video-id="znoZQMA1U5c">
-        <img class="video-thumbnail"
-             src="https://img.youtube.com/vi/znoZQMA1U5c/maxresdefault.jpg"
-             alt="YouTube Video Thumbnail">
-        <div class="play-button-wrapper">
-          <div class="play-button"></div>
-        </div>
-      </div>
-      <p class="column-caption">Video Caption</p>
-    </div>
-
+<div class="two-col">
+  <div class="two-col-left">
+    <img src="images/mm poster.png" alt="MM Poster">
   </div>
-</div>
+
+  <div class="two-col-right">
+    <h2></h2>
+    <p>Mariachi Melam is a film in production at Texas A&M University, College Station, developed as part of Jais George's Master of Science graduate thesis in Visualization.<br><br>A filmmaker and engineer from India, Jais has previously worked as an assistant director and story artist in Malayalam cinema. Currently his work spans 3D visual effects, virtual production and generative AI in filmmaking. Mariachi Melam is his feature directorial debut</p>
+  </div>
+ </div>
 
 </main>
-
 
 <!-- ============================
       FOOTER
@@ -151,59 +124,6 @@
   };
   window.addEventListener("scroll", updateHeaderState);
   updateHeaderState();
-
-</script>
-  
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-function onYouTubeIframeAPIReady() {
-  document.querySelectorAll(".video-wrapper").forEach(wrapper => {
-    const thumbnail = wrapper.querySelector(".video-thumbnail");
-    const playBtnWrapper = wrapper.querySelector(".play-button-wrapper");
-    let player = null;
-    let isInitialized = false;
-
-    playBtnWrapper.addEventListener("click", () => {
-      if (!isInitialized) {
-        const videoId = wrapper.dataset.videoId;
-
-        // iframe container
-        const iframe = document.createElement("div");
-        iframe.className = "yt-frame";
-        wrapper.appendChild(iframe);
-
-        // overlay with thumbnail + play button
-        const overlay = document.createElement("div");
-        overlay.className = "video-overlay";
-        overlay.appendChild(thumbnail);
-        overlay.appendChild(playBtnWrapper);
-        wrapper.appendChild(overlay);
-
-        // initialize YouTube player
-        player = new YT.Player(iframe, {
-          videoId,
-          playerVars: { rel: 0, autoplay: 1, playsinline: 1 },
-          events: {
-            onStateChange: (e) => {
-              if (e.data === YT.PlayerState.PAUSED) overlay.style.display = "flex";
-              if (e.data === YT.PlayerState.PLAYING) overlay.style.display = "none";
-            }
-          }
-        });
-
-        overlay.addEventListener("click", () => {
-          player.playVideo();
-          overlay.style.display = "none";
-        });
-
-        isInitialized = true;
-      }
-
-      player.playVideo();
-      wrapper.querySelector(".video-overlay").style.display = "none";
-    });
-  });
-}
 </script>
 
 </body>
