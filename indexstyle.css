@@ -373,6 +373,57 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 }
 
 
+/* =========================
+   THREE-COLUMN LAYOUT
+========================= */
+
+.three-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 90vw;
+  margin: 60px auto;
+}
+
+/* LEFT: Poster */
+.three-col-left {
+  display: flex;
+  justify-content: center;
+}
+
+.three-col-left img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+}
+
+/* CENTER: Text */
+.three-col-center {
+  max-width: 420px;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  display: flex;
+  align-items: center;
+}
+
+/* RIGHT: Video */
+.three-col-right {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Ensure video respects column width */
+.three-col-right .video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+
+
 
 
 /* MOBILE */
@@ -386,7 +437,19 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
     text-align: center;
     justify-content: flex-start; /* no vertical centering on stacked layout */
   }
+
+  .three-col {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .three-col-center {
+    text-align: center;
+  } 
 }
+
+
 
 
 /* =========================
