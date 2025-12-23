@@ -452,6 +452,85 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 
 
 
+
+
+
+.project-row-two-columns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* stack on small screens */
+  margin: 20px 0;
+}
+
+.project-column-two {
+  flex: 1 1 300px; /* responsive width, min 300px */
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* keep existing video-wrapper + play-button styling */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-wrapper img.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-wrapper .play-button-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper .play-button {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.8);
+  clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
+  transition: background 0.3s;
+}
+
+.video-wrapper:hover .play-button {
+  background: rgba(255,255,255,1);
+}
+
+/* Responsive stacking on mobile */
+@media (max-width: 768px) {
+  .project-row-two-columns {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+
+
+
+
+
 /* =========================
    PROJECTS / COLLAGES
 ========================= */
