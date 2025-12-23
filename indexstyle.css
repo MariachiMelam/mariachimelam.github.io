@@ -393,7 +393,7 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 .project .project-title,
 .project .project-desc {
   font-weight: 200;
-  color: #fff;
+  color: #000;
   margin-bottom: 20px;
 }
 
