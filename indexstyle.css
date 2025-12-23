@@ -679,81 +679,54 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 /* =========================
    VIDEO CONTAINERS
 ========================= */
-.video-container {
-  margin: 30px auto;
-  aspect-ratio: 16/9;
-  width: min(90vw, 1200px);
-}
-
-.video-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  display: block;
-  position: static;
-}
-
-.video-grid, .video-grid-icvfx {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  width: 90vw;
-  margin: 30px auto;
-}
-
-.video-grid .video-wrapper,
-.video-grid-icvfx .video-item {
+.video-wrapper {
   position: relative;
+  width: 100%;
+  max-width: 696px;
+  aspect-ratio: 696 / 311;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: none;
-  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.video-grid .video-wrapper {
-  flex: 1 1 calc((100% - 40px)/3);
-  aspect-ratio: 696/391;
-}
-
-.video-grid .video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
+.video-wrapper img.video-thumbnail {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-wrapper .play-button-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.video-wrapper .play-button {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.8);
+  clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
+}
+
+.video-overlay {
+  position: absolute;
   top: 0;
   left: 0;
-  border: none;
-  outline: none;
-}
-
-.video-grid .video-wrapper:hover { transform: translateY(-4px); }
-
-.video-grid-icvfx .video-item {
-  flex: 1 1 calc(33.333% - 20px);
-  padding-top: calc(311 / 696 * 100%);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.video-grid-icvfx .video-item iframe {
-  position: absolute;
-  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  border: none;
-  outline: none;
-}
-
-@media (max-width: 1200px) {
-  .video-grid .video-wrapper { flex: 1 1 45%; }
-  .video-grid-icvfx .video-item { flex: 1 1 calc(50% - 20px); }
-}
-
-@media (max-width: 768px) {
-  .video-grid, .video-grid-icvfx { flex-direction: column; align-items: center; gap: 15px; }
-  .video-grid .video-wrapper, .video-grid-icvfx .video-item { flex: 1 1 100%; width: 90vw; aspect-ratio: 696/391; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
 }
 
 /* =========================
@@ -919,87 +892,3 @@ footer a {
   max-width: 1200px;
   margin-inline: auto;
 }
-
-
-// Load YouTube API only once
-if (!window.youTubeAPIReady) {
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
-
-  window.youTubeAPIReady = new Promise(resolve => {
-    window.onYouTubeIframeAPIReady = resolve;
-  });
-}
-
-// After API loads, initialize all video wrappers
-window.youTubeAPIReady.then(() => {
-  document.querySelectorAll(".video-wrapper").forEach(wrapper => {
-    const thumbnail = wrapper.querySelector(".video-thumbnail");
-    const playBtnWrapper = wrapper.querySelector(".play-button-wrapper"); // new clickable area
-    let iframe = null;
-    let player = null;
-    let overlay = null;
-    let isInitialized = false;
-
-    playBtnWrapper.addEventListener("click", () => {
-      if (!isInitialized) {
-        const videoId = wrapper.dataset.videoId;
-
-        // create iframe container
-        iframe = document.createElement("div");
-        iframe.className = "yt-frame";
-        wrapper.appendChild(iframe);
-
-        // create overlay to show thumbnail + play button
-        overlay = document.createElement("div");
-        overlay.className = "video-overlay";
-
-        // move thumbnail and playBtnWrapper into overlay
-        overlay.appendChild(thumbnail);
-        overlay.appendChild(playBtnWrapper);
-        wrapper.appendChild(overlay);
-
-        // initialize YouTube player
-        player = new YT.Player(iframe, {
-          videoId,
-          playerVars: { rel: 0, autoplay: 1, playsinline: 1 },
-          events: {
-            onStateChange: (e) => {
-              if (e.data === YT.PlayerState.PAUSED) {
-                if (wrapper.pauseTimer) clearTimeout(wrapper.pauseTimer);
-                wrapper.pauseTimer = setTimeout(() => {
-                  if (player.getPlayerState() === YT.PlayerState.PAUSED) {
-                    overlay.style.display = "flex";
-                  }
-                }, 5000);
-              } else if (e.data === YT.PlayerState.PLAYING) {
-                if (wrapper.pauseTimer) clearTimeout(wrapper.pauseTimer);
-                overlay.style.display = "none";
-              }
-            }
-          }
-        });
-
-        // clicking overlay resumes video
-        overlay.addEventListener("click", () => {
-          player.playVideo();
-          overlay.style.display = "none";
-        });
-
-        isInitialized = true;
-      }
-
-      // Always play video on click
-      player.playVideo();
-      overlay.style.display = "none";
-    });
-  });
-});
-
-
-
-
-
-
-
