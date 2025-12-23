@@ -34,13 +34,6 @@ body {
   scrollbar-width: none;
 }
 
-
-/* Make the page stretch to full height */
-html, body {
-  height: 100%;
-}
-
-
 /* Make main area expand to fill remaining space */
 main {
   flex: 1;
