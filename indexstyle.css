@@ -477,45 +477,6 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
   border-radius: 8px;
 }
 
-/* keep existing video-wrapper + play-button styling */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  cursor: pointer;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.video-wrapper img.video-thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-wrapper .play-button-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-wrapper .play-button {
-  width: 100px;
-  height: 100px;
-  background: rgba(255,255,255,0.8);
-  clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
-  transition: background 0.3s;
-}
-
-.video-wrapper:hover .play-button {
-  background: rgba(255,255,255,1);
-}
 
 /* Responsive stacking on mobile */
 @media (max-width: 768px) {
@@ -524,7 +485,6 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
     gap: 15px;
   }
 }
-
 
 
 
@@ -582,6 +542,139 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+
+
+
+/* =========================
+   VIDEO GRID (Unified Style)
+========================= */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;   /* NEW */
+  width: 100%;
+  padding: 2rem 5%;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 696px;
+  aspect-ratio: 696 / 311;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+  transform: translateY(-4px);
+}
+
+/* Iframe full coverage */
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 0;
+}
+
+/* Optional title styling used on video pages */
+.video-grid-title,
+main h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.video-caption,
+.video-subcaption {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.3rem;
+  margin-top: 0.3rem; 
+}
+
+.video-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center; 
+}
+
+
+.video-item > .video-wrapper {
+  width: 100%; 
+  max-width: 696px; /* same as your video-wrapper */
+}
+
+
+/* No YT embed junk */
+
+.video-wrapper {
+  cursor: pointer;
+}
+
+.video-wrapper img.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-wrapper .play-button-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px; /* bigger clickable perimeter */
+  height: 150px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper .play-button {
+  width: 100px; /* visual size */
+  height: 100px;
+  background: rgba(255,255,255,0.8);
+  clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
+  transition: background 0.3s;
+}
+
+
+.video-wrapper:hover .play-button {
+  background: rgba(255,255,255,1);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* center thumbnail + play */
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
 
 /* =========================
    PERSON CARDS (image + captions)
@@ -676,58 +769,6 @@ h2 { margin-top: 0; text-align: center; font-size: 1rem; }
 }
 
 
-/* =========================
-   VIDEO CONTAINERS
-========================= */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 696px;
-  aspect-ratio: 696 / 311;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.video-wrapper img.video-thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.video-wrapper .play-button-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150px;
-  height: 150px;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.video-wrapper .play-button {
-  width: 100px;
-  height: 100px;
-  background: rgba(255,255,255,0.8);
-  clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  cursor: pointer;
-}
 
 /* =========================
    FOOTER
